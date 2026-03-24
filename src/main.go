@@ -64,7 +64,11 @@ func parse(path string) (*Mesh, error){
 
 		line := strings.TrimSpace(scanner.Text())
 		fields := strings.Fields(line)
-		
+
+		if len(fields) == 0 || strings.HasPrefix(fields[0], "#") {
+			continue
+		}
+
 		switch fields[0]{
 			case "v":
 				if len(fields) != 4{ // Input validation to check if each line contain 4 item
@@ -374,6 +378,7 @@ func main(){
 	root := makeTree(bounds, mesh.Faces, 1, maxDepth, stats)
 	voxels := getVoxels(root)
 
+	// Save solutions .obj
 	outputPath := filepath.Join("./test/solution", fmt.Sprintf("%s_voxel.obj", filepath.Base(inputPath)))
 	vertexCount, faceCount, err := writeOutput(voxels, outputPath)
 	if err != nil {
@@ -381,6 +386,7 @@ func main(){
 		os.Exit(1)
 	}
 
+	// Print stats
 	fmt.Printf("Voxels         : %d\n", len(voxels))
 	fmt.Printf("Vertices       : %d\n", vertexCount)
 	fmt.Printf("Faces          : %d\n", faceCount)
