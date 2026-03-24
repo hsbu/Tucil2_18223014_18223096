@@ -374,7 +374,7 @@ func main(){
 	root := makeTree(bounds, mesh.Faces, 1, maxDepth, stats)
 	voxels := getVoxels(root)
 
-	outputPath := filepath.Join("../test/solution", fmt.Sprintf("%s_voxel.obj", filepath.Base(inputPath)))
+	outputPath := filepath.Join("./test/solution", fmt.Sprintf("%s_voxel.obj", filepath.Base(inputPath)))
 	vertexCount, faceCount, err := writeOutput(voxels, outputPath)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Terdapat error saat menyimpan solusi: %v\n", err)
