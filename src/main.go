@@ -347,7 +347,7 @@ func writeOutput(voxels []AABB, path string) (int, int, error) {
 
 func main(){
 	// Input validation
-	if len(os.Args) != 3 {
+	if len(os.Args) < 3 || len(os.Args) > 4 {
 		fmt.Fprintln(os.Stderr, "Format input: tucil2 <input.obj> <max_depth>")
 		os.Exit(1)
 	}
@@ -406,4 +406,6 @@ func main(){
 	fmt.Printf("Max depth      : %d\n", stats.MaxDepth)
 	fmt.Printf("Execution time : %v\n", time.Since(start))
 	fmt.Printf("Output file    : %s\n", outputPath)
+
+	runViewer(voxels, bounds)
 }
