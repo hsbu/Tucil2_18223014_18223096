@@ -46,7 +46,7 @@ File executable akan tersimpan di folder `bin/`.
 ## Cara Menjalankan Program
 Jalankan program dari **root folder** proyek (`Tucil2_18223014_18223096/`).
 
-### Opsi 1: Run dengan file executable
+### Run dengan file executable
 
 #### Windows (PowerShell/Command Prompt)
 ```bash
@@ -55,24 +55,12 @@ Jalankan program dari **root folder** proyek (`Tucil2_18223014_18223096/`).
 
 **Contoh:**
 ```bash
-.\bin\tucil2.exe .\test\data\teapot.obj 6
+.\bin\tucil2.exe .\test\data\teddybear.obj 6
 ```
 
 #### Linux/macOS
 ```bash
 ./bin/tucil2 <input.obj> <max_depth>
-```
-
-### Opsi 2: Run langsung dengan Go
-```bash
-cd src
-go run . <input.obj> <max_depth>
-```
-
-**Contoh:**
-```bash
-cd src
-go run . ../test/data/teapot.obj 5
 ```
 
 ### Parameter
@@ -113,12 +101,14 @@ File input contoh tersedia di folder `test/data/`:
 - `line.obj`
 - `pumpkin.obj`
 - `teapot.obj`
+- `teddybear.obj`
 
 ## Struktur Folder
 ```
 Tucil2_18223014_18223096/
 ├── bin/                        # File executable
 │   └── tucil2.exe
+├── doc/                        # Dokumentasi
 ├── src/                        # Source code
 │   ├── main.go                 # Program utama (parsing, octree, voxelisasi)
 │   ├── viewer.go               # 3D wireframe viewer (Ebiten)
@@ -129,12 +119,14 @@ Tucil2_18223014_18223096/
 │   │   ├── cow.obj
 │   │   ├── line.obj
 │   │   ├── pumpkin.obj
-│   │   └── teapot.obj
+│   │   ├── teapot.obj
+│   │   └── teddybear.obj
 │   └── solution/               # File output hasil voxelisasi
 │       ├── cow_voxel.obj
 │       ├── line_voxel.obj
 │       ├── pumpkin_voxel.obj
-│       └── teapot_voxel.obj
+│       ├── teapot_voxel.obj
+│       └── teddybear_voxel.obj
 ├── .gitignore
 └── README.md                   # File ini
 ```
